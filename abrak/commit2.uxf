@@ -1,0 +1,68 @@
+<diagram program="umletino" version="15.1"><zoom_level>12</zoom_level><element><id>UMLClass</id><coordinates><x>1152</x><y>0</y><w>336</w><h>216</h></coordinates><panel_attributes>ViewElement
+--
+- id: string
+- div: HtmlElement
+- activateCallback:  ActivateCallback
+--
+constructor(id: string)
++appendTo(parent: HtmlElement): void
++ navigate(): void
++ get id(): string
++ get div(): HtmlElement
++ set activateCallback(value: ActivateCallback)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>84</x><y>672</y><w>384</w><h>168</h></coordinates><panel_attributes>QuestionManager (régi)
+--
+questionList: Question[]
+renderCallback: RenderCallback
+--
+constructor(questions? : QuestionType[])
++ getAllElement(): void
++ set renderCallback(value: RenderCallback)
+- createQuestion(question: QuestionType): Question</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>516</y><w>984</w><h>468</h></coordinates><panel_attributes>VÁLTOZIK A QUESTONMANAGER!!!</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>564</x><y>672</y><w>384</w><h>180</h></coordinates><panel_attributes>QuestionManager CSAK AZ ÚJÍTÁSOK
+--
+- addStatusCallback: AddStatusCallback
+- importResultCallback: ImportResultCallback
+--
++ addElement(question: QuestionType): void
++ addElementList(question: QuestionType[]): void
++ getExportContent(): string
++ set addStatusCallback(value: AddStatusCallback)
++ set importResultCallback(value:ImportResultCallback)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1308</x><y>372</y><w>324</w><h>204</h></coordinates><panel_attributes>FormController
+--
+- formInputList: FormField[]
+- manager: QuestionManager
+- form: HtmlFormElement
+--
+- createElement(): QuestionType</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1308</x><y>204</y><w>180</w><h>192</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80;130;80;130;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1752</x><y>372</y><w>300</w><h>228</h></coordinates><panel_attributes>FormInput
+--
+- errrorDiv: HtmlDivElement
+- input: HtmlInputElement
+- name: string
+--
+constructor(id: string, name: string, 
+labelContent: string, 
+parent: HtmlFormElement)
++ validate(): boolean
++ get name(): string
++ get value(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1620</x><y>456</y><w>156</w><h>48</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1284</x><y>672</y><w>288</w><h>72</h></coordinates><panel_attributes>AddStatusCallback
+--
+(message: string): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1428</x><y>564</y><w>264</w><h>132</h></coordinates><panel_attributes>lt=&lt;.
+beállítja, hogy meg tudja jeleníteni</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>936</x><y>696</y><w>372</w><h>132</h></coordinates><panel_attributes>lt=&lt;-
+meghívja az addelementnél</panel_attributes><additional_attributes>290;10;200;10;200;90;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>924</x><y>396</y><w>396</w><h>324</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;250;180;250;180;10;310;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1740</x><y>156</y><w>300</w><h>192</h></coordinates><panel_attributes>FormFieldType
+--
++ id: string
++ label: string
++ name: string
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1488</x><y>240</y><w>276</w><h>156</h></coordinates><panel_attributes>lt=&lt;.
+FormInput-ot állít elő belölük</panel_attributes><additional_attributes>50;110;50;20;210;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1404</x><y>804</y><w>336</w><h>72</h></coordinates><panel_attributes>ImportResultCallback
+--
+(message: string): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>936</x><y>804</y><w>492</w><h>72</h></coordinates><panel_attributes>lt=&lt;-
+meghívja az addelementlistnél</panel_attributes><additional_attributes>390;40;210;40;210;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2208</x><y>300</y><w>384</w><h>216</h></coordinates><panel_attributes>ImportExport
+--
+#manager: QuestionManager
+#resultDiv: HtmlDivElement
+--
+constructor(id: string, manager: QuestionManager)
+#createExport(): void
+#createImport(): HtmlInputButton</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1476</x><y>108</y><w>924</w><h>216</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;750;10;750;160</additional_attributes></element><element><id>Relation</id><coordinates><x>924</x><y>504</y><w>1368</w><h>552</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;290;10;440;1120;440;1120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1728</x><y>504</y><w>528</w><h>348</h></coordinates><panel_attributes>lt=&lt;.
+Implementálja</panel_attributes><additional_attributes>10;270;420;270;420;10</additional_attributes></element></diagram>

@@ -1,0 +1,116 @@
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><element><id>UMLClass</id><coordinates><x>1309</x><y>105</y><w>210</w><h>112</h></coordinates><panel_attributes>EditQuestionType
+--
++ id: number
++ question: string
++ answer1: string
++ answer2: string
++ answer3: string
++ answer4: string
++ rightAnswer: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>364</x><y>0</y><w>574</w><h>273</h></coordinates><panel_attributes>VÁLTOZIK A FORMCONTROLLER!!!</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>406</x><y>84</y><w>189</w><h>119</h></coordinates><panel_attributes>FormController
+--
+- formInputList: FormField[]
+- manager: QuestionManager
+- form: HtmlFormElement
+--
+- createElement(): QuestionType</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>686</x><y>84</y><w>189</w><h>147</h></coordinates><panel_attributes>FormController
+--
+- submitButton: HtmlButtonElement
+- editQuestion: EditQuestionType
+--
+- activateCallback()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>357</x><y>315</y><w>574</w><h>273</h></coordinates><panel_attributes>VÁLTOZIK A VIEWELEMENT!</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>392</x><y>399</y><w>196</w><h>126</h></coordinates><panel_attributes>ViewElement
+--
+- id: string
+- div: HtmlElement
+- activateCallback:  ActivateCallback
+--
+constructor(id: string)
++appendTo(parent: HtmlElement): void
++ navigate(): void
++ get id(): string
++ get div(): HtmlElement
++ set activateCallback(value: ActivateCallback)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>693</x><y>392</y><w>196</w><h>126</h></coordinates><panel_attributes>ViewElement
+--
+
+--
++ navigate(questionId?: number): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1015</x><y>322</y><w>574</w><h>273</h></coordinates><panel_attributes>VÁLTOZIK AZ ACTIVATECALLBACK!</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1085</x><y>378</y><w>105</w><h>49</h></coordinates><panel_attributes>ActivateCallback
+--
+():void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1386</x><y>385</y><w>133</w><h>49</h></coordinates><panel_attributes>ActivateCallback
+--
+(questionId?: number):void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>357</x><y>630</y><w>574</w><h>273</h></coordinates><panel_attributes>VÁLTOZIK A FORMINPUT
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>427</x><y>700</y><w>175</w><h>133</h></coordinates><panel_attributes>FormInput
+--
+- errrorDiv: HtmlDivElement
+- input: HtmlInputElement
+- name: string
+--
+constructor(id: string, name: string, 
+labelContent: string, 
+parent: HtmlFormElement)
++ validate(): boolean
++ get name(): string
++ get value(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>686</x><y>700</y><w>175</w><h>133</h></coordinates><panel_attributes>FormInput
+--
+ 
+--
++ set value(newVal: string)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>868</x><y>119</y><w>455</w><h>35</h></coordinates><panel_attributes>lt=&lt;-
+Miután elkérjük a question-t id alapján a managerből,
+előállítjuk az activateCallback-ben a navigációban található id segítségével</panel_attributes><additional_attributes>630;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1015</x><y>630</y><w>574</w><h>273</h></coordinates><panel_attributes>VÁLTOZIK A NAVIGATIONBAR!
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1050</x><y>700</y><w>245</w><h>140</h></coordinates><panel_attributes>NavigationBar
+--
+- viewElementList: ViewElement[]
+- buttonBar: HtmlDivElement
+- viewContainer: HtmlDivElement
+--
+constructor(id: string)
++ addViewElement(label: string, view: ViewElement) : void
++ navigate(id: string): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1323</x><y>700</y><w>245</w><h>140</h></coordinates><panel_attributes>NavigationBar
+--
+
+--
++ navigate(id: string, questionId?: number): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>357</x><y>931</y><w>574</w><h>273</h></coordinates><panel_attributes>VÁLTOZIK A TABLE
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>399</x><y>987</y><w>210</w><h>140</h></coordinates><panel_attributes>Table
+--
+- manager: QuestionManager
+--
+constructor(id: string,
+ manager: QuestionManager,
+ headerString: [])</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>679</x><y>987</y><w>217</w><h>140</h></coordinates><panel_attributes>Table
+--
+- navigationBar: NavigationBar
+--
+constructor(id: string,
+ manager: QuestionManager,
+ headerString: string[], navigationBar: NavigationBar)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1015</x><y>931</y><w>574</w><h>273</h></coordinates><panel_attributes>VÁLTOZIK A QUESTIONMANAGER
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1050</x><y>1001</y><w>224</w><h>168</h></coordinates><panel_attributes>QuestionManager 
+--
+- questionList: Question[]
+- renderCallback: RenderCallback
+- addStatusCallback: AddStatusCallback
+- importResultCallback: ImportResultCallback
+--
+constructor(questions? : QuestionType[])
++ getAllElement(): void
++ addElement(question: QuestionType): void
++ addElementList(question: QuestionType[]): void
++ getExportContent(): string
++ set renderCallback(value: RenderCallback)
++ set addStatusCallback(value: AddStatusCallback)
++ set importResultCallback(value:ImportResultCallback)
+- createQuestion(question: QuestionType): Question</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1323</x><y>1008</y><w>252</w><h>105</h></coordinates><panel_attributes>QuestionManager
+--
+
+--
++ getQuestionTypeById(id: number): QuestionType
++ updateElement(id: number, question: QuestionType): void
+- createQuestion(question: QuestionType, id?: number)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1715</x><y>1022</y><w>168</w><h>42</h></coordinates><panel_attributes>AddStatusCallback
+--
+(message: string): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1568</x><y>1036</y><w>161</w><h>28</h></coordinates><panel_attributes>lt=&lt;-
+Hívja az updateElement is</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>UMLNote</id><coordinates><x>1645</x><y>1085</y><w>147</w><h>49</h></coordinates><panel_attributes>a createQuestion ha nem kap id-t
+akkor a lista mérete lesz az id,
+egyébként meg az id.
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>1043</x><y>273</y><w>168</w><h>35</h></coordinates><panel_attributes>Ha a függvény neve egyezik
+egy korábbival, akkor bővítjük azt
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element></diagram>
