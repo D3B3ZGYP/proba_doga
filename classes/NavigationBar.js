@@ -26,7 +26,7 @@ class NavigationBar extends ViewElement{
     }
 
     /**
-     * 
+     *  
      * @param {string} label 
      * @param {ViewElement} view 
      */

@@ -35,6 +35,10 @@ class Table extends ViewElement{
                 createTextTableCell(i.rightAnswer, tr)
             }
         }
+
+        this.activateCallback = () => {
+            this.#manager.getAllElement()
+        }
     }
 }
 

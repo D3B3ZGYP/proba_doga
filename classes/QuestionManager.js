@@ -4,6 +4,14 @@
  * @callback RenderCallback
  * @param {Question[]} list
  * @returns {void}
+ * 
+ * @callback ImportResultCallback
+ * @param {string} message
+ * @returns {void}
+ * 
+ * * @callback AddStatusCallback
+ * @param {string} message
+ * @returns {void}
  */
 
 class QuestionManager{
@@ -15,12 +23,27 @@ class QuestionManager{
      * @type {RenderCallback}
      */
     #renderCallback
+    /**
+     * @type {AddStatusCallback}
+     */
+    #addStatusCallback
+    /**
+     * @type {ImportResultCallback}
+     */
+    #importResultCallback
 
     /**
      * @param {RenderCallback} value
      */
     set renderCallback(value){
         this.#renderCallback = value
+    }
+
+    /**
+     * @param {AddStatusCallback} value
+     */
+    set addStatusCallback(value){
+        this.#addStatusCallback = value
     }
 
     /**
@@ -38,6 +61,10 @@ class QuestionManager{
         }
     }
 
+    /**
+     * 
+     * @returns {void}
+     */
     getAllElement(){
         this.#renderCallback(this.#questionList)
     }
@@ -55,6 +82,40 @@ class QuestionManager{
         question.id = this.#questionList.length
 
         return question
+    }
+
+    /**
+     * 
+     * @param {QuestionType} questionType
+     * @returns {void}
+     */
+    addElement(questionType){
+        const question = this.#createQuestion(questionType)
+
+        if (question.validate()){
+            this.#questionList.push(question)
+            this.#addStatusCallback("Sikeres hozzáadás!")
+        } else {
+            this.#addStatusCallback("Hibás hozzáadás!")
+        }
+    }
+
+    /**
+     * 
+     * @param {QuestionType[]} questions 
+     * @returns {void}
+     */
+    addElementList(questions){
+        for (const i of questions)
+            this.#questionList.push(this.#createQuestion(i))
+    }
+
+    /**
+     * 
+     * @returns {string}
+     */
+    getExportContent(){
+
     }
 }
 
@@ -118,6 +179,10 @@ class Question{
      */
     set rightAnswer(value){
         this.#rightAnswer = value
+    }
+
+    validate(){
+        return this.#question && this.#rightAnswer && this.#answers[0] && this.#answers[1] && this.#answers[2] && this.#answers[3]
     }
 }
 

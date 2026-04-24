@@ -68,6 +68,9 @@ const createButton = (options) => {
         for (const i of classList)
             button.classList.add(i)
 
+    if (parent)
+        parent.appendChild(button)
+
     return button
 }
 
