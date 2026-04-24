@@ -316,9 +316,9 @@ const createRadioButton = ({id, label, name} ) => {
     input.id = id
     input.type = "radio"
 
-    const label = div.appendChild(document.createElement("label"))
-    label.innerText = label
-    label.htmlFor = id
+    const labelElement = div.appendChild(document.createElement("label"))
+    labelElement.innerText = label
+    labelElement.htmlFor = id
 
     return div
 }

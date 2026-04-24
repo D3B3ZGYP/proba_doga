@@ -5,7 +5,7 @@ class NavigationBar extends ViewElement{
     /**
      * @type {ViewElement[]}
      */
-    #viewElementList
+    #viewElementList    
     /**
      * @type {HTMLDivElement}
      */
@@ -17,8 +17,11 @@ class NavigationBar extends ViewElement{
 
     constructor(id){
         super(id)
+        this.#viewElementList = []
 
+        this.div.id = "navbar"
         this.#buttonBar = this.div.appendChild(document.createElement("div"))
+        this.#buttonBar.classList.add("buttonbar")
         this.#viewContainer = this.div.appendChild(document.createElement("div"))
     }
 
@@ -30,8 +33,17 @@ class NavigationBar extends ViewElement{
     addViewElement(label, view){
         const button = this.#buttonBar.appendChild(createButton({label, id: "button_" + view.id}))
         button.addEventListener("click", () => {
-            button.classList.add("activate")
-            this.#viewContainer.innerHTML = view
+            for (const i of this.#buttonBar.children)
+                if (i == button)
+                    i.classList.add("active")
+                else
+                    i.classList.remove("active")
+
+            this.#viewContainer.innerHTML = ""
+            this.#viewContainer.appendChild(view.div)
+
+            if (view.activateCallback)
+                view.activateCallback()
         })
 
         this.#viewElementList.push(view)
@@ -41,3 +53,5 @@ class NavigationBar extends ViewElement{
         document.getElementById("button_" + id).click()
     }
 }
+
+export {NavigationBar}

@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><element><id>UMLClass</id><coordinates><x>385</x><y>28</y><w>196</w><h>126</h></coordinates><panel_attributes>ViewElement
+<diagram program="umletino" version="15.1"><zoom_level>11</zoom_level><element><id>UMLClass</id><coordinates><x>572</x><y>111</y><w>308</w><h>198</h></coordinates><panel_attributes>ViewElement
 --
 - id: string
 - div: HtmlElement
@@ -9,9 +9,9 @@ constructor(id: string)
 + navigate(): void
 + get id(): string
 + get div(): HtmlElement
-+ set activateCallback(value: ActivateCallback)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>707</x><y>42</y><w>105</w><h>49</h></coordinates><panel_attributes>ActivateCallback
++ set activateCallback(value: ActivateCallback)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1078</x><y>133</y><w>165</w><h>77</h></coordinates><panel_attributes>ActivateCallback
 --
-():void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>105</x><y>231</y><w>245</w><h>140</h></coordinates><panel_attributes>NavigationBar
+():void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>132</x><y>430</y><w>385</w><h>220</h></coordinates><panel_attributes>NavigationBar
 --
 - viewElementList: ViewElement[]
 - buttonBar: HtmlDivElement
@@ -19,16 +19,16 @@ constructor(id: string)
 --
 constructor(id: string)
 + addViewElement(label: string, view: ViewElement) : void
-+ navigate(id: string): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>385</x><y>231</y><w>210</w><h>140</h></coordinates><panel_attributes>Table
++ navigate(id: string): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>572</x><y>430</y><w>330</w><h>220</h></coordinates><panel_attributes>Table
 --
 - manager: QuestionManager
 --
 constructor(id: string,
  manager: QuestionManager,
- headerString: string[])</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>371</x><y>476</y><w>154</w><h>35</h></coordinates><panel_attributes>RenderCallback
+ headerString: string[])</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>550</x><y>815</y><w>242</w><h>55</h></coordinates><panel_attributes>RenderCallback
 --
 (list: Question[]): void
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>245</x><y>553</y><w>224</w><h>98</h></coordinates><panel_attributes>QuestionManager
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>352</x><y>936</y><w>352</w><h>154</h></coordinates><panel_attributes>QuestionManager
 --
 - questionList: Question[]
 - renderCallback: RenderCallback
@@ -36,7 +36,7 @@ constructor(id: string,
 constructor(questions? : QuestionType[])
 + getAllElement(): void
 + set renderCallback(value: RenderCallback)
-- createQuestion(question: QuestionType): Question</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>21</x><y>546</y><w>147</w><h>154</h></coordinates><panel_attributes>Question
+- createQuestion(question: QuestionType): Question</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>925</y><w>231</w><h>242</h></coordinates><panel_attributes>Question
 --
 - id : number
 - question: string
@@ -50,18 +50,18 @@ constructor(questions? : QuestionType[])
 + get answers(): string[]
 + set answers(value: string[])
 + get rightAnswer(): string
-+ set rightAnswer(value: string)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>595</x><y>567</y><w>98</w><h>126</h></coordinates><panel_attributes>QuestionType
++ set rightAnswer(value: string)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>902</x><y>958</y><w>154</w><h>198</h></coordinates><panel_attributes>QuestionType
 --
 + question: string
 + answer1: string
 + answer2: string
 + answer3: string
 + answer4: string
-+ rightAnswer: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>224</x><y>91</y><w>175</w><h>154</h></coordinates><panel_attributes>lt=&lt;-
-m1=0..*</panel_attributes><additional_attributes>230;10;10;10;10;200</additional_attributes></element><element><id>Relation</id><coordinates><x>252</x><y>147</y><w>259</w><h>98</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>350;10;350;60;10;60;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>147</y><w>84</w><h>98</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;100;60;100;120</additional_attributes></element><element><id>Relation</id><coordinates><x>574</x><y>63</y><w>147</w><h>35</h></coordinates><panel_attributes>lt=&lt;-
++ rightAnswer: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>319</x><y>210</y><w>275</w><h>242</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*</panel_attributes><additional_attributes>230;10;10;10;10;200</additional_attributes></element><element><id>Relation</id><coordinates><x>363</x><y>298</y><w>407</w><h>154</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>350;10;350;60;10;60;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>737</x><y>298</y><w>132</w><h>154</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;100;60;100;120</additional_attributes></element><element><id>Relation</id><coordinates><x>869</x><y>166</y><w>231</w><h>55</h></coordinates><panel_attributes>lt=&lt;-
 navigate hívja,
-ha implementálva van</panel_attributes><additional_attributes>190;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>161</x><y>581</y><w>98</w><h>28</h></coordinates><panel_attributes>lt=&lt;-
-m1=0..*</panel_attributes><additional_attributes>10;10;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>448</x><y>357</y><w>77</w><h>133</h></coordinates><panel_attributes>lt=&lt;.
-implementálja</panel_attributes><additional_attributes>10;170;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>364</x><y>497</y><w>105</w><h>63</h></coordinates><panel_attributes>lt=&lt;-
-a getAllElement hívja</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>462</x><y>588</y><w>147</w><h>28</h></coordinates><panel_attributes>lt=&lt;.
-Questiont állít elő belőle</panel_attributes><additional_attributes>10;20;190;20</additional_attributes></element><element><id>Relation</id><coordinates><x>462</x><y>294</y><w>231</w><h>301</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;410;140;410;140;190;310;190;310;10;190;10</additional_attributes></element></diagram>
+ha implementálva van</panel_attributes><additional_attributes>190;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>980</y><w>154</w><h>44</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*</panel_attributes><additional_attributes>10;10;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>671</x><y>628</y><w>121</w><h>209</h></coordinates><panel_attributes>lt=&lt;.
+implementálja</panel_attributes><additional_attributes>10;170;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>539</x><y>848</y><w>165</w><h>99</h></coordinates><panel_attributes>lt=&lt;-
+a getAllElement hívja</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>991</y><w>231</w><h>44</h></coordinates><panel_attributes>lt=&lt;.
+Questiont állít elő belőle</panel_attributes><additional_attributes>10;20;190;20</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>529</y><w>363</w><h>473</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;410;140;410;140;190;310;190;310;10;190;10</additional_attributes></element></diagram>
